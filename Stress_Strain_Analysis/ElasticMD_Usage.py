@@ -49,6 +49,7 @@ thermo = ElasticMD.extract.log(example_log_file)
 eengz,szz_ave = thermo.get(('eengz','szz_ave'),0)
 
 
-
+# For analysis, look into rpy2 to interface ElasticMD with
+# my R scripts.
 
 
