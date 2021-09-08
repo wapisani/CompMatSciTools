@@ -21,5 +21,5 @@ This tool requires Julia 1.5.2 or greater to run and the StatsBase package. For 
 
 To run this tool, in the terminal or command prompt, run  
 `julia Get_Topology_From_Bonds.jl your_bond_list_file_here.txt`.  
-As an example, try running 
+As an example, try running  
 `julia Get_Topology_From_Bonds.jl PA6IFFPly_Example_Bonds.txt`
