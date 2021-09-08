@@ -1,6 +1,6 @@
 # Generating topology from a list of bonds
 This tool is useful when writing fix bond/react templates and monomer data files by hand. Simply draw out your molecule, number the atoms, and write up a list of the bonds in a text file. 
-The format of this text file should be:
+The format of this text file should be:  
 bond_number atom1 atom2  
 1 1 2  
 2 2 3  
@@ -8,7 +8,7 @@ bond_number atom1 atom2
 4 4 5  
 etc. 
 
-But the format of the file can also be:
+But the format of the file can also be:  
 bond_number bond_type atom1 atom2  
 1 1 1 2  
 2 2 2 3  
