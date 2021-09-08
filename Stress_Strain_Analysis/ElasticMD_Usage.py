@@ -49,7 +49,6 @@ thermo = ElasticMD.extract.log(example_log_file)
 eengz,szz_ave = thermo.get(('eengz','szz_ave'),0)
 
 
-# For analysis, look into rpy2 to interface ElasticMD with
-# my R scripts.
+# For analysis, use this answer (https://stackoverflow.com/questions/55841605/how-to-run-r-script-in-python-using-rpy2) to run my R scripts from Python
 
 
