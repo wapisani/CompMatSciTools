@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# lammps < mygraphene.in
+#NOTE: This is the file you want to create new sheets of GNP
+#-----------------------------------------------------------
+variable	output string "graphene"
+units           real
+dimension       3
+boundary        p p p
+atom_style      molecular
+bond_style	harmonic
+
+
+variable        alat equal 2.46
+lattice 	custom ${alat} &
+		a1 1 0 0 &
+		a2 0 1.732050807569 0 &
+		a3 0 0 3.35 &
+		basis 0 0 0 &
+		basis 0.5 0.166666666667 0 &
+		basis 0.5 0.5 0 &
+		basis 0.0 0.666666666667 0 &
+
+#Old ylo/yhi = -1.8228/1.8228
+#x=10, y=2.5 results in a rectangular periodic sheet of GNP with 400 atoms
+#x=10, y=5 results in a rectangular, but more square periodic sheet of GNP with 800 atoms
+variable x equal 20.01
+variable y equal 1.75*${x}
+
+region		_section prism -${x} ${x} -${y} ${y} -0.25 0.25 0 0 0 #x should be 4*y
+create_box	1 _section
+create_atoms	1 box
+atom_modify	sort 0 0
+mass		* 12.011
+variable 	myid string GNP_lattice_x${x}_y${y}
+
+dump            1 all atom 1000 ${myid}.lammpstrj #every picosecond
+dump_modify     1 scale no sort id
+
+thermo_style	custom lx ly lz
+
+run		0
+
+write_data 	${myid}.dat
